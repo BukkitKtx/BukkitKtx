@@ -13,6 +13,6 @@ class BukkitKtx : JavaPlugin() {
     }
 
     override fun onEnable() {
-        logger.info("Loaded BukkitKtx (Kotlin: ${KotlinVersion.CURRENT})")
+        logger.info("Loaded BukkitKtx (Version: ${description.version}, Kotlin: ${KotlinVersion.CURRENT})")
     }
 }
