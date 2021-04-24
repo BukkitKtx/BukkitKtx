@@ -1,4 +1,4 @@
-package me.rerere.bukkitktx.utils
+package me.rerere.bukkitktx.common
 
 import org.bukkit.Material
 import org.bukkit.enchantments.Enchantment

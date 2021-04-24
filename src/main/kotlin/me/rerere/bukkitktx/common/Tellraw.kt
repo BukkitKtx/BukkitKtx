@@ -1,4 +1,4 @@
-package me.rerere.bukkitktx.utils
+package me.rerere.bukkitktx.common
 
 import net.md_5.bungee.api.chat.BaseComponent
 import net.md_5.bungee.api.chat.TextComponent
@@ -22,7 +22,7 @@ operator fun BaseComponent.plus(component: String): BaseComponent {
 /**
  * Use lambda to quickly build tellraw
  */
-inline fun tellraw(text: String, modifier: BaseComponent.() -> Unit = {}): BaseComponent {
+inline fun textTellraw(text: String, modifier: BaseComponent.() -> Unit = {}): BaseComponent {
     val component = TextComponent(text)
     component.modifier()
     return component

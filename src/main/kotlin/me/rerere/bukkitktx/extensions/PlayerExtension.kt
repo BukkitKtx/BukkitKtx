@@ -1,5 +1,6 @@
 package me.rerere.bukkitktx.extensions
 
+import net.md_5.bungee.api.chat.BaseComponent
 import org.bukkit.Bukkit
 import org.bukkit.Location
 import org.bukkit.command.CommandSender
@@ -20,6 +21,8 @@ val Player.latency: Int
 
 /**
  *  send message: "player send string"
+ *
+ *  @param text Message
  */
 infix fun Player.send(text: String) {
     this.sendMessage(text)
@@ -27,6 +30,8 @@ infix fun Player.send(text: String) {
 
 /**
  * teleport player: "player teleport location"
+ *
+ * @param location Destination
  */
 infix fun Player.teleport(location: Location) {
     require(Bukkit.isPrimaryThread())
@@ -40,4 +45,22 @@ infix fun Player.teleport(location: Location) {
  */
 fun CommandSender.sendMessage(lines : Collection<String>){
     lines.forEach { this.sendMessage(it) }
+}
+
+/**
+ * Send tellraw message to player
+ *
+ * @param tellrawMessage tellraw message
+ */
+fun Player.sendMessage(tellrawMessage : BaseComponent){
+    this.spigot().sendMessage(tellrawMessage)
+}
+
+/**
+ * Send tellraw messages to player
+ *
+ * @param tellrawMessages tellraw messages
+ */
+fun Player.sendMessage(tellrawMessages : Collection<BaseComponent>){
+    tellrawMessages.forEach { this.sendMessage(it) }
 }

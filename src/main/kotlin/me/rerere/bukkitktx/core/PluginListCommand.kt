@@ -1,8 +1,8 @@
 package me.rerere.bukkitktx.core
 
+import me.rerere.bukkitktx.common.coloring
 import me.rerere.bukkitktx.extensions.sendMessage
 import me.rerere.bukkitktx.isKTXPlugin
-import me.rerere.bukkitktx.utils.coloring
 import org.bukkit.Bukkit
 import org.bukkit.command.CommandSender
 import org.bukkit.command.defaults.BukkitCommand
