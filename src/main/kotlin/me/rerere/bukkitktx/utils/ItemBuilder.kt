@@ -46,7 +46,7 @@ class ItemBuilder constructor(type: Material, amount: Int = 1) {
      * @param lore the lore data
      */
     fun lore(lore: List<String>, colorful: Boolean = true): ItemBuilder {
-        itemStack.itemMeta?.lore = lore.apply { if (colorful) this.colorful() }
+        itemStack.itemMeta?.lore = lore.apply { if (colorful) this.coloring() }
         return this
     }
 

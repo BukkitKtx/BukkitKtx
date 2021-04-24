@@ -5,7 +5,7 @@ import org.bukkit.Location
 import org.bukkit.entity.Player
 
 /**
- * 扩展属性，获得玩家的延迟信息
+ * Get the latency data of player
  */
 val Player.latency: Int
     get() = try {
@@ -18,14 +18,14 @@ val Player.latency: Int
     }
 
 /**
- *  精简的发送消息: "player send string"
+ *  send message: "player send string"
  */
 infix fun Player.send(text: String) {
     this.sendMessage(text)
 }
 
 /**
- * 精简传送: "player teleport location"
+ * teleport player: "player teleport location"
  */
 infix fun Player.teleport(location: Location) {
     require(Bukkit.isPrimaryThread())
