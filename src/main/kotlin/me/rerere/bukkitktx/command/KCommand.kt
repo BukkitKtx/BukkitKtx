@@ -1,5 +1,8 @@
 package me.rerere.bukkitktx.command
 
-class KCommand {
-    
+fun createCommand(name: String, builder: KCommand.() -> Unit) {
+
+}
+
+class KCommand(name: String) : CommandSection(name) {
 }
