@@ -23,17 +23,24 @@ class BukkitKtx : JavaPlugin() {
     }
 
     private fun injectPluginListCommand(){
-        val pm = Bukkit.getPluginManager() as SimplePluginManager
-        val commandMap : SimpleCommandMap = pm.javaClass.getDeclaredField("commandMap").let {
-            it.isAccessible = true
-            it.get(pm) as SimpleCommandMap
+        try {
+            val pm = Bukkit.getPluginManager() as SimplePluginManager
+            val commandMap : SimpleCommandMap = pm.javaClass.getDeclaredField("commandMap").let {
+                it.isAccessible = true
+                it.get(pm) as SimpleCommandMap
+            }
+            val scmClazz = SimpleCommandMap::class.java
+            val knownCommand : MutableMap<String, Command> = scmClazz.getDeclaredField("knownCommands").let {
+                it.isAccessible = true
+                it.get(commandMap) as MutableMap<String, Command>
+            }
+            knownCommand["plugins"] = PluginListCommand()
+            knownCommand["pl"] = PluginListCommand()
+            logger.info("Injected `plugins` command")
+        }catch (exception : Exception){
+            exception.printStackTrace()
+            logger.warning("Failed to inject `plugins` command!")
         }
-        val knownCommand : MutableMap<String, Command> = commandMap.javaClass.getDeclaredField("knownCommands").let {
-            it.isAccessible = true
-            it.get(commandMap) as MutableMap<String, Command>
-        }
-        knownCommand["plugins"] = PluginListCommand()
-        knownCommand["pl"] = PluginListCommand()
     }
 }
 
