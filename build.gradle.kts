@@ -12,12 +12,11 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
-    maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
+    maven("https://hub.spigotmc.org/nexus/content/groups/public/")
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.4.32")
-    implementation("org.spigotmc:spigot-api:1.16.4-R0.1-SNAPSHOT")
+    implementation("org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT")
     testImplementation(kotlin("test-junit"))
 }
 

@@ -2,6 +2,7 @@ package me.rerere.bukkitktx.extensions
 
 import org.bukkit.Bukkit
 import org.bukkit.Location
+import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
 /**
@@ -30,4 +31,13 @@ infix fun Player.send(text: String) {
 infix fun Player.teleport(location: Location) {
     require(Bukkit.isPrimaryThread())
     this.teleport(location)
+}
+
+/**
+ * Send multiple messages to player
+ *
+ * @param lines messages
+ */
+fun CommandSender.sendMessage(lines : Collection<String>){
+    lines.forEach { this.sendMessage(it) }
 }

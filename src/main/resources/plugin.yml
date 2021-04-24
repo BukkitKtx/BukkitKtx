@@ -1,6 +1,6 @@
 name: BukkitKtx
 version: 1.0.0
-main: me.rere.bukkitktx.BukkitKtx
+main: me.rerere.bukkitktx.BukkitKtx
 description: Support kotlin language in bukkit
 author: RE
 load: STARTUP
